@@ -2,9 +2,9 @@
 #
 # find - find utilities
 #
-# @(#) $Revision$
-# @(#) $Id$
-# @(#) $Source$
+# @(#) $Revision: 1.1 $
+# @(#) $Id: Makefile,v 1.1 1999/09/22 02:35:14 chongo Exp chongo $
+# @(#) $Source: /usr/local/src/cmd/find/RCS/Makefile,v $
 #
 # Copyright (c) 1997 by Landon Curt Noll.  All Rights Reserved.
 #
@@ -30,7 +30,7 @@ SHELL=/bin/sh
 BINMODE=0555
 DESTBIN=/usr/local/bin
 DESTLIB=/usr/local/lib
-INSTALL=bsdinst
+INSTALL=install
 
 all: nlfind nonlfind
 
