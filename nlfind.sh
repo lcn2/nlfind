@@ -17,5 +17,5 @@ shift
 
 # find them
 #
-/sbin/find "$dir" \( -name '*
+/usr/gnu/bin/find "$dir" \( -name '*
 *' \) -a \( $@ \)
