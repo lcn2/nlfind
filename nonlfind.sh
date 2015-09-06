@@ -2,11 +2,11 @@
 #
 # nonlfind - find files without a newline in their name
 #
-# @(#) $Revision$
-# @(#) $Id$
-# @(#) $Source$
+# @(#) $Revision: 1.4 $
+# @(#) $Id: nonlfind.sh,v 1.4 1999/09/27 05:36:31 chongo Exp root $
+# @(#) $Source: /usr/local/src/bin/nlfind/RCS/nonlfind.sh,v $
 #
-# Copyright (c) 1997 by Landon Curt Noll.  All Rights Reserved.
+# Copyright (c) 1997,2015 by Landon Curt Noll.  All Rights Reserved.
 #
 # Permission to use, copy, modify, and distribute this software and
 # its documentation for any purpose and without fee is hereby granted,
@@ -41,5 +41,5 @@ shift
 
 # find them
 #
-/usr/gnu/bin/find "$dir" \( ! -name '*
+find "$dir" \( ! -name '*
 *' \) -a \( $@ \)
