@@ -2,8 +2,8 @@
 #
 # nlfind - find files with a newline in their name
 #
-# @(#) $Revision: 1.3 $
-# @(#) $Id: nlfind.sh,v 1.3 1999/09/27 05:36:31 chongo Exp root $
+# @(#) $Revision: 1.4 $
+# @(#) $Id: nlfind.sh,v 1.4 2015/09/06 07:19:13 root Exp $
 # @(#) $Source: /usr/local/src/bin/nlfind/RCS/nlfind.sh,v $
 #
 # Copyright (c) 1997,2015 by Landon Curt Noll.  All Rights Reserved.

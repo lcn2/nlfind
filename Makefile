@@ -2,9 +2,9 @@
 #
 # find - find utilities
 #
-# @(#) $Revision: 1.2 $
-# @(#) $Id: Makefile,v 1.2 1999/09/22 02:48:55 chongo Exp chongo $
-# @(#) $Source: /usr/local/src/cmd/find/RCS/Makefile,v $
+# @(#) $Revision: 1.3 $
+# @(#) $Id: Makefile,v 1.3 1999/09/27 05:36:31 chongo Exp $
+# @(#) $Source: /usr/local/src/bin/nlfind/RCS/Makefile,v $
 #
 # Copyright (c) 1997 by Landon Curt Noll.  All Rights Reserved.
 #
