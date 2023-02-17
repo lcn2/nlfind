@@ -1,6 +1,6 @@
 #!/usr/bin/env make
 #
-# find - find utilities
+# nlfind - find files with or without a newline in their name
 #
 # Copyright (c) 1997,2023 by Landon Curt Noll.  All Rights Reserved.
 #
