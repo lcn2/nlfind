@@ -2,7 +2,7 @@
 #
 # nlfind - find files with or without a newline in their name
 #
-# Copyright (c) 1997,2023 by Landon Curt Noll.  All Rights Reserved.
+# Copyright (c) 1997-1999,2015,2023,2025 by Landon Curt Noll.  All Rights Reserved.
 #
 # Permission to use, copy, modify, and distribute this software and
 # its documentation for any purpose and without fee is hereby granted,
@@ -22,36 +22,77 @@
 # OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
 # PERFORMANCE OF THIS SOFTWARE.
 #
-# chongo <was here> /\oo/\
+# chongo (Landon Curt Noll) /\oo/\
 #
-# Share and enjoy!
+# http://www.isthe.com/chongo/index.html
+# https://github.com/lcn2
+#
+# Share and enjoy!  :-)
 
-SHELL= bash
-BINMODE= 0555
-DESTBIN= /usr/local/bin
-DESTLIB= /usr/local/lib
+
+#############
+# utilities #
+#############
+
+CC= cc
+CHMOD= chmod
+CP= cp
+ID= id
 INSTALL= install
 RM= rm
-CP= cp
-CHMOD= chmod
+SHELL= bash
 
-all: nlfind nonlfind
 
-nlfind: nlfind.sh
-	${RM} -f $@
-	${CP} $@.sh $@
-	${CHMOD} +x $@
+######################
+# target information #
+######################
 
-nonlfind: nonlfind.sh
-	${RM} -f $@
-	${CP} $@.sh $@
-	${CHMOD} +x $@
+# V=@:  do not echo debug statements (quiet mode)
+# V=@   echo debug statements (debug / verbose mode)
+#
+V=@:
+#V=@
 
-install: all
-	${INSTALL} -c -m ${BINMODE} nlfind ${DESTBIN}/nlfind
-	${INSTALL} -c -m ${BINMODE} nonlfind ${DESTBIN}/nonlfind
+DESTDIR= /usr/local/bin
+
+TARGETS= nlfind nonlfind
+
+
+######################################
+# all - default rule - must be first #
+######################################
+
+all: ${TARGETS}
+	${V} echo DEBUG =-= $@ start =-=
+	${V} echo DEBUG =-= $@ end =-=
+
+
+#################################################
+# .PHONY list of rules that do not create files #
+#################################################
+
+.PHONY: all configure clean clobber install
+
+
+###################################
+# standard Makefile utility rules #
+###################################
+
+configure:
+	${V} echo DEBUG =-= $@ start =-=
+	${V} echo DEBUG =-= $@ end =-=
 
 clean:
+	${V} echo DEBUG =-= $@ start =-=
+	${V} echo DEBUG =-= $@ end =-=
 
 clobber: clean
-	${RM} -f nlfind nonlfind
+	${V} echo DEBUG =-= $@ start =-=
+	${V} echo DEBUG =-= $@ end =-=
+
+install: all
+	${V} echo DEBUG =-= $@ start =-=
+	@if [[ $$(${ID} -u) != 0 ]]; then echo "ERROR: must be root to make $@" 1>&2; exit 2; fi
+	${INSTALL} -d -m 0755 ${DESTDIR}
+	${INSTALL} -m 0555 ${TARGETS} ${DESTDIR}
+	${V} echo DEBUG =-= $@ end =-=
