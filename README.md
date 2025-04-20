@@ -15,9 +15,63 @@ sudo make install
 ```
 
 
-# To use
+# Examples
 
 ```sh
+$ mkdir -p foo
+$ mkdir -p 'foo/bar
+'
+$ mkdir -p 'foo/fu
+bar'
+$ date > 'foo/the
+date'
+$ touch foo/normal
+$ pwd > foo/file
+
+$ ls -lRa foo
+foo:
+total 8
+drwxr-xr-x  7 chongo 224 Apr 19 19:57  .
+drwxr-xr-x 15 chongo 480 Apr 19 19:58  ..
+drwxr-xr-x  2 chongo  64 Apr 19 19:57 'bar'$'\n'
+-rw-r--r--  1 chongo  26 Apr 19 19:57  file
+drwxr-xr-x  2 chongo  64 Apr 19 19:57 'fu'$'\n''bar'
+-rw-r--r--  1 chongo   0 Apr 19 19:57  normal
+-rw-r--r--  1 chongo  29 Apr 19 19:57 'the'$'\n''date'
+
+'foo/bar'$'\n':
+total 0
+drwxr-xr-x 2 chongo  64 Apr 19 19:57 .
+drwxr-xr-x 7 chongo 224 Apr 19 19:57 ..
+
+'foo/fu'$'\n''bar':
+total 0
+drwxr-xr-x 2 chongo  64 Apr 19 19:57 .
+drwxr-xr-x 7 chongo 224 Apr 19 19:57 ..
+
+$ /usr/local/bin/nlfind foo
+foo/bar
+
+foo/the
+date
+foo/fu
+bar
+
+$ /usr/local/bin/nonlfind foo
+foo
+foo/file
+foo/normal
+
+$ /usr/local/bin/nlfind -l foo
+'foo/bar'$'\n'
+'foo/fu'$'\n''bar'
+'foo/the'$'\n''date'
+```
+
+
+# To use
+
+```
 /usr/local/bin/nlfind [-h] [-v level] [-V] [-n] [-N] [-l] dir [find_args ...]
 
     -h          print help message and exit
@@ -46,7 +100,7 @@ Exit codes:
 nlfind version: 1.5.1 2025-03-27
 ```
 
-```sh
+```
 /usr/local/bin/nonlfind [-h] [-v level] [-V] [-n] [-N] dir [find_args ...]
 
     -h          print help message and exit
@@ -67,27 +121,6 @@ Exit codes:
  >= 10         internal error
 
 nonlfind version: 1.5.1 2025-03-27
-```
-
-# Examples
-
-```sh
-mkdir -p foo
-mkdir -p 'foo/bar
-'
-mkdir -p 'foo/fu
-bar'
-date > 'foo/the
-date'
-touch foo/normal
-pwd > foo/file
-
-/usr/local/bin/nlfind foo
-
-/usr/local/bin/nonlfind foo
-
-/usr/local/bin/nlfind -l foo
-
 ```
 
 
